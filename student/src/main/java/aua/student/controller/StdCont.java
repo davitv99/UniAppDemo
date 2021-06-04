@@ -6,6 +6,7 @@
 package aua.student.controller;
 
 import aua.student.model.StdModel;
+import aua.student.model.StdUFModel;
 import aua.student.service.StdService;
 import java.util.List;
 import java.util.Optional;
@@ -27,19 +28,22 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 
 public class StdCont {
+
     @Autowired
     private StdService stdservice;
- @PostMapping(path = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
- @ResponseBody
+
+    @PostMapping(path = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
     @Transactional
- public ResponseEntity<?> register(@RequestBody(required = true) StdModel newstd){
- Optional<StdModel> regstd = stdservice.studentreg(newstd);
-if(regstd.isPresent()){
- return ResponseEntity.ok().body("Student successfully created");
-}
- return ResponseEntity.badRequest().body("You already have an account, please log in");
- }
- @GetMapping(path = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> register(@RequestBody(required = true) StdUFModel newstd) {
+        Optional<StdModel> regstd = stdservice.studentreg(newstd);
+        if (regstd.isPresent()) {
+            return ResponseEntity.ok().body("Student successfully created");
+        }
+        return ResponseEntity.badRequest().body("You already have an account, please log in");
+    }
+
+    @GetMapping(path = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @Transactional
     public ResponseEntity<?> findAll() {
@@ -51,21 +55,23 @@ if(regstd.isPresent()){
 
         return ResponseEntity.badRequest().body("There is no student in you database");
     }
+
     @DeleteMapping(path = "/deletestd", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @Transactional
     public ResponseEntity<?> deleteStd(@RequestBody(required = true) int bndgpa) {
-    int n=stdservice.removestd(bndgpa);
-    return ResponseEntity.ok().body("There are total " +n+" students that were eliminated due low gpa");
+        int n = stdservice.removestd(bndgpa);
+        return ResponseEntity.ok().body("There are total " + n + " students that were eliminated due low gpa");
     }
+
     @DeleteMapping(path = "/deleteall", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @Transactional
     public ResponseEntity<?> removeall() {
-      boolean a = stdservice.removeall();
-        if(a==true){
-        return ResponseEntity.ok().body("Successfully deleted");
-        }  
+        boolean a = stdservice.removeall();
+        if (a == true) {
+            return ResponseEntity.ok().body("Successfully deleted");
+        }
         return ResponseEntity.badRequest().body("Error occured");
     }
 

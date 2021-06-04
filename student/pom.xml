@@ -72,7 +72,25 @@
             <version>5.3.7</version>
             <type>jar</type>
         </dependency>
-    </dependencies>
+	 <dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-beans</artifactId>
+	  <version>5.3.7</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-tx</artifactId>
+	  <version>5.3.7</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-web</artifactId>
+	  <version>5.3.7</version>
+	  <type>jar</type>
+	 </dependency>
+	</dependencies>
 
 	<build>
 	<finalName>student</finalName>

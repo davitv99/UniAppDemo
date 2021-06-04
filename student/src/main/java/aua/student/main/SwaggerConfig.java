@@ -1,4 +1,5 @@
 package aua.student.main;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -9,7 +10,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
 /**
  *
  * @author armdev
@@ -19,7 +19,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     //http://localhost:9095/swagger-ui.html
-
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Account API")

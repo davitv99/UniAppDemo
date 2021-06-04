@@ -14,8 +14,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class StdRegMain {
 
-	public static void main(String[] args) {
-		SpringApplication.run(StdRegMain.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(StdRegMain.class, args);
+    }
 
 }

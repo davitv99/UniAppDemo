@@ -14,18 +14,18 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ *
+ * @author davitv
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "students")
-public class StdModel implements Serializable {
-
+public class StdUFModel implements Serializable {
     @Id
-    private String id;
     private String name;
     private String surename;
     private LocalDate birthday;
-    private LocalDate dateOfReg = LocalDate.now();
     private String email;
     private Integer gpa;
 }

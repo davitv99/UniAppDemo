@@ -5,20 +5,19 @@
  */
 package aua.student.repository;
 
+import aua.student.model.EventModel;
 import aua.student.model.StdModel;
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ *
+ * @author davitv
+ */
 @Transactional
 @Repository
+public interface EventRepo extends MongoRepository<EventModel, String> {
 
-public interface StdRepo extends MongoRepository<StdModel, String> {
-
-    Optional<StdModel> findByEmail(String email);
-
-    Optional<StdModel> findByGpa(Integer gpa);
 }

@@ -5,7 +5,6 @@
  */
 package aua.student.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.time.LocalDate;
 import lombok.AllArgsConstructor;
@@ -14,18 +13,24 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ *
+ * @author davitv
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "students")
-public class StdModel implements Serializable {
+@Document(collection = "events")
+public class EventModel implements Serializable {
 
     @Id
     private String id;
-    private String name;
-    private String surename;
-    private LocalDate birthday;
-    private LocalDate dateOfReg = LocalDate.now();
+    private LocalDate dateOfReg;
     private String email;
-    private Integer gpa;
+    private String message;
+    private String type;
+
+//    public void setEventDateOfReg(LocalDateTime now) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
