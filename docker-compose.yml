@@ -2,8 +2,6 @@ version: "3.3"
 
 services:
     
-
-    
   mongodb:      
     build: ./mongodb
     image: mongodb
@@ -39,6 +37,36 @@ services:
     networks:
      - mnet
   
+  courses:
+    image: courses     
+    build: ./courses
+    container_name: courses   
+    links:
+      - mongodb
+    ports:
+      - 9096:9096 
+    depends_on:
+      - mongodb
+    deploy:
+      replicas: 1
+    networks:
+      - mnet
+      
+  gateway:
+    image: gateway     
+    build: ./gateway
+    container_name: gateway   
+    links:
+      - mongodb
+    ports:
+      - 9097:9097
+    depends_on:
+      - mongodb
+    deploy:
+      replicas: 1
+    networks:
+      - mnet
+     
 networks:
   mnet:
     driver: bridge

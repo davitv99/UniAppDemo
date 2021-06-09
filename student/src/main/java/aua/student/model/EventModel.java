@@ -29,8 +29,4 @@ public class EventModel implements Serializable {
     private String email;
     private String message;
     private String type;
-
-//    public void setEventDateOfReg(LocalDateTime now) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
 }

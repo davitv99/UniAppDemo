@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author davitv
  */
 @RestController
-@RequestMapping("/api/v1/events")
+@RequestMapping("/api/v2/events")
 @Slf4j
 public class EventCont {
     @Autowired

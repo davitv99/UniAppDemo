@@ -24,23 +24,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/useraccount")
+@RequestMapping("/api/v2/studentacc")
 @Slf4j
 
 public class StdCont {
 
     @Autowired
     private StdService stdservice;
-
+    String fail = "You already have an account";
+    String success = "Successfully created";
     @PostMapping(path = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @Transactional
-    public ResponseEntity<?> register(@RequestBody(required = true) StdUFModel newstd) {
+    public Optional<StdModel> register(@RequestBody(required = true) StdUFModel newstd) {
         Optional<StdModel> regstd = stdservice.studentreg(newstd);
         if (regstd.isPresent()) {
-            return ResponseEntity.ok().body("Student successfully created");
+            return regstd;
         }
-        return ResponseEntity.badRequest().body("You already have an account, please log in");
+        return null;
     }
 
     @GetMapping(path = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)

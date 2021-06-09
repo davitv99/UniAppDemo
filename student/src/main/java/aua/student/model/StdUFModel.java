@@ -22,7 +22,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StdUFModel implements Serializable {
-    @Id
     private String name;
     private String surename;
     private LocalDate birthday;
